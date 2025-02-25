@@ -1,0 +1,3 @@
+displayName = Unofficial Calamity Enchanter
+author = Jimuium
+version = 0.1

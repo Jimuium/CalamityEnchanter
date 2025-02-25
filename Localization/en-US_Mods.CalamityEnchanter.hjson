@@ -1,0 +1,43 @@
+# This file will automatically update with entries for new content after a build and reload.
+Mods: {
+	CalamityEnchanter: {
+		ItemName.ExampleItem: Example Item
+		ItemTooltip.ExampleItem: " This is an Example Item!"
+
+		MapObject: {
+		}
+	}
+}
+
+Items: {
+	ExampleItem: {
+		Tooltip: ""
+		DisplayName: Example Item
+	}
+
+	WoodenHexStaff: {
+		Tooltip: This is a staf made from wood :D
+		DisplayName: Wooden Hex Staff
+	}
+}
+
+Projectiles.WoodenHexStaffProjectile.DisplayName: Wooden Hex Staff Projectile
+
+Buffs: {
+	Blessing: {
+		Description: Mods.CalamityEnchanter.Buffs.Blessing.Description
+		DisplayName: Blessing
+	}
+
+	HexedDebuff: {
+		Description: You are hexed. Taking 4 dmg/s
+		DisplayName: Hexed
+	}
+
+	Tier1HexedDebuff: {
+		Description: Mods.CalamityEnchanter.Buffs.Tier1HexedDebuff.Description
+		DisplayName: Tier1 Hexed Debuff
+	}
+}
+
+DamageClasses.HexDamageClass.DisplayName: Hex Damage
