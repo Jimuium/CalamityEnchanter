@@ -19,9 +19,47 @@ Items: {
 		Tooltip: This is a staf made from wood :D
 		DisplayName: Wooden Hex Staff
 	}
+
+	AmethystScepter: {
+		DisplayName: Amethyst Scepter
+		Tooltip: ""
+	}
+
+	DiamondScepter: {
+		DisplayName: Diamond Scepter
+		Tooltip: ""
+	}
+
+	EmeraldScepter: {
+		DisplayName: Emerald Scepter
+		Tooltip: ""
+	}
+
+	RubyScepter: {
+		DisplayName: Ruby Scepter
+		Tooltip: ""
+	}
+
+	SapphireScepter: {
+		DisplayName: Sapphire Scepter
+		Tooltip: ""
+	}
+
+	TopazScepter: {
+		DisplayName: Topaz Scepter
+		Tooltip: ""
+	}
 }
 
-Projectiles.WoodenHexStaffProjectile.DisplayName: Wooden Hex Staff Projectile
+Projectiles: {
+	WoodenHexStaffProjectile.DisplayName: Wooden Hex Staff Projectile
+	AmethystScepterProjectile.DisplayName: Amethyst Scepter Projectile
+	DiamondScepterProjectile.DisplayName: Diamond Scepter Projectile
+	EmeraldScepterProjectile.DisplayName: Emerald Scepter Projectile
+	RubyScepterProjectile.DisplayName: Ruby Scepter Projectile
+	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
+	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
+}
 
 Buffs: {
 	Blessing: {
@@ -37,6 +75,36 @@ Buffs: {
 	Tier1HexedDebuff: {
 		Description: Mods.CalamityEnchanter.Buffs.Tier1HexedDebuff.Description
 		DisplayName: Tier1 Hexed Debuff
+	}
+
+	AmethystBreak: {
+		DisplayName: Amethyst Break
+		Description: Mods.CalamityEnchanter.Buffs.AmethystBreak.Description
+	}
+
+	DiamondBreak: {
+		DisplayName: Diamond Break
+		Description: Mods.CalamityEnchanter.Buffs.DiamondBreak.Description
+	}
+
+	EmeraldBreak: {
+		DisplayName: Emerald Break
+		Description: Mods.CalamityEnchanter.Buffs.EmeraldBreak.Description
+	}
+
+	RubyBreak: {
+		DisplayName: Ruby Break
+		Description: Mods.CalamityEnchanter.Buffs.RubyBreak.Description
+	}
+
+	SapphireBreak: {
+		DisplayName: Sapphire Break
+		Description: Mods.CalamityEnchanter.Buffs.SapphireBreak.Description
+	}
+
+	TopazBreak: {
+		DisplayName: Topaz Break
+		Description: Mods.CalamityEnchanter.Buffs.TopazBreak.Description
 	}
 }
 
