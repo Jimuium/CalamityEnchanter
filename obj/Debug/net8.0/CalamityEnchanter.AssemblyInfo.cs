@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CalamityEnchanter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1347ad7d844f627a9637205f6269cc09dcf2e9d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a42170ff4868af184eaa6acb04705b0e12504d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CalamityEnchanter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CalamityEnchanter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
