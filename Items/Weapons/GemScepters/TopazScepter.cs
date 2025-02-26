@@ -1,5 +1,6 @@
 using CalamityEnchanter.DamageClasses;
 using CalamityEnchanter.Projectiles.Weapons.GemScepters;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +14,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.width = 48;
             Item.height = 48;
             Item.useTime = 60;
-            Item.useAnimation = 20;
+            Item.useAnimation = 60;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.autoReuse = true;
 
@@ -38,6 +39,11 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
                 .AddIngredient(ItemID.Topaz, 10)
                 .AddTile(TileID.Anvils)
                 .Register();
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-6f, 0f);
         }
     }
 }
