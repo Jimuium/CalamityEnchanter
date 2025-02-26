@@ -58,7 +58,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
         {
             if (
                 !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.DiamondBreak>())
-                && !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>())
+                || !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>())
             )
             {
                 target.AddBuff(ModContent.BuffType<Buffs.GemScepters.EmeraldBreak>(), 600);
