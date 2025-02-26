@@ -34,7 +34,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.damage = 12;
             Item.knockBack = 4f;
 
-            Item.UseSound = SoundID.Item71;
+            Item.UseSound = SoundID.Item43;
             Item.shoot = ModContent.ProjectileType<TopazScepterProjectile>();
             Item.shootSpeed = 10f;
         }
