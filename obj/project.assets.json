@@ -31,19 +31,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jimi.hautaluoma\\.nuget\\packages\\": {}
+    "C:\\Users\\kai.karttunen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jimi.hautaluoma\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\CalamityEnchanter.csproj",
+      "projectUniqueName": "C:\\Users\\kai.karttunen\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\CalamityEnchanter.csproj",
       "projectName": "CalamityEnchanter",
-      "projectPath": "C:\\Users\\jimi.hautaluoma\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\CalamityEnchanter.csproj",
-      "packagesPath": "C:\\Users\\jimi.hautaluoma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jimi.hautaluoma\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\obj\\",
+      "projectPath": "C:\\Users\\kai.karttunen\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\CalamityEnchanter.csproj",
+      "packagesPath": "C:\\Users\\kai.karttunen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kai.karttunen\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalamityEnchanter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jimi.hautaluoma\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\kai.karttunen\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
