@@ -21,6 +21,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
 
             Projectile.aiStyle = -1;
+            Projectile.scale = 0.75f;
 
             Projectile.penetrate = 1;
         }
@@ -74,7 +75,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             {
                 if (target.HasBuff(buff))
                 {
-                    target.DelBuff(buff);
+                    target.DelBuff(target.FindBuffIndex(buff));
                 }
             }
         }
