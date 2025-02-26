@@ -52,7 +52,11 @@ Items: {
 
 	EnchanterEmblem: {
 		DisplayName: Enchanter Emblem
+	}
+	CursedStaff: {
+		DisplayName: Cursed Staff
 		Tooltip: ""
+	
 	}
 }
 
@@ -64,6 +68,7 @@ Projectiles: {
 	RubyScepterProjectile.DisplayName: Ruby Scepter Projectile
 	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
 	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
+	CursedStaffProjectile.DisplayName: Cursed Staff Projectile
 }
 
 Buffs: {
@@ -110,6 +115,11 @@ Buffs: {
 	TopazBreak: {
 		DisplayName: Topaz Break
 		Description: Your armor has been crystallized with rubies, -5 defence
+	}
+
+	CurseSlowdown: {
+		DisplayName: Curse Slowdown
+		Description: Mods.CalamityEnchanter.Buffs.CurseSlowdown.Description
 	}
 }
 
