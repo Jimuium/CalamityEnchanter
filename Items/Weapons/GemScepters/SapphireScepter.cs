@@ -23,6 +23,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.autoReuse = true;
+            Item.rare = ItemRarityID.Blue;
 
             Item.value = Item.buyPrice(silver: 25);
             Item.maxStack = 1;
