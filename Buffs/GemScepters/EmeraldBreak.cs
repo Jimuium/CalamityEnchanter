@@ -16,7 +16,7 @@ namespace CalamityEnchanter.Buffs.GemScepters
 
         public override void Update(NPC target, ref int buffIndex)
         {
-            target.defDefense -= 4;
+            target.defDefense -= 7;
             if (Main.rand.NextBool(3))
             {
                 Dust.NewDust(
