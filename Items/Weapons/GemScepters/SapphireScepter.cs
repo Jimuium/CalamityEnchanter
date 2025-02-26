@@ -34,7 +34,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.damage = 16;
             Item.knockBack = 5f;
 
-            Item.UseSound = SoundID.Item71;
+            Item.UseSound = SoundID.Item43;
             Item.shoot = ModContent.ProjectileType<SapphireScepterProjectile>();
             Item.shootSpeed = 12f;
         }
