@@ -16,6 +16,11 @@ namespace CalamityEnchanter.Buffs.GemScepters
 
         public override void Update(NPC target, ref int buffIndex)
         {
+            target.DelBuff(ModContent.BuffType<AmethystBreak>());
+            target.DelBuff(ModContent.BuffType<TopazBreak>());
+            target.DelBuff(ModContent.BuffType<SapphireBreak>());
+            target.DelBuff(ModContent.BuffType<EmeraldBreak>());
+
             target.defDefense -= 8;
             if (Main.rand.NextBool(3))
             {
