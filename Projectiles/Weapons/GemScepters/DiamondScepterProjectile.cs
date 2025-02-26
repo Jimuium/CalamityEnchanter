@@ -20,6 +20,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
 
             Projectile.aiStyle = -1;
+            Projectile.scale = 0.75f;
 
             Projectile.penetrate = 1;
         }
@@ -56,7 +57,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.GemScepters.DiamondBreak>(), 600);
 
             var WeakerBuffs = new[]
             {
@@ -71,7 +72,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             {
                 if (target.HasBuff(buff))
                 {
-                    target.DelBuff(buff);
+                    target.DelBuff(target.FindBuffIndex(buff));
                 }
             }
         }

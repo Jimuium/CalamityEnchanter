@@ -20,6 +20,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
 
             Projectile.aiStyle = -1;
+            Projectile.scale = 0.75f;
 
             Projectile.penetrate = 1;
         }
@@ -58,7 +59,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
         {
             if (
                 !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.DiamondBreak>())
-                || !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>())
+                && !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>())
             )
             {
                 target.AddBuff(ModContent.BuffType<Buffs.GemScepters.EmeraldBreak>(), 600);
@@ -75,7 +76,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             {
                 if (target.HasBuff(buff))
                 {
-                    target.DelBuff(buff);
+                    target.DelBuff(target.FindBuffIndex(buff));
                 }
             }
         }
