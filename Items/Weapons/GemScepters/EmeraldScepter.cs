@@ -2,6 +2,7 @@ using CalamityEnchanter.DamageClasses;
 using CalamityEnchanter.Projectiles.Weapons.GemScepters;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,6 +10,11 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
 {
     internal class EmeraldScepter : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
+
         public override void SetDefaults()
         {
             Item.width = 48;
@@ -18,14 +24,14 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.autoReuse = true;
 
-            Item.value = Item.buyPrice(silver: 2, copper: 40);
+            Item.value = Item.buyPrice(silver: 35);
             Item.maxStack = 1;
 
             Item.noMelee = true;
             Item.DamageType = ModContent.GetInstance<HexDamageClass>();
             Item.mana = 22;
             Item.damage = 18;
-            Item.knockBack = 3f;
+            Item.knockBack = 6f;
 
             Item.UseSound = SoundID.Item71;
             Item.shoot = ModContent.ProjectileType<EmeraldScepterProjectile>();
