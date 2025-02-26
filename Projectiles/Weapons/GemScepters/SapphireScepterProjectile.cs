@@ -56,7 +56,27 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.GemScepters.SapphireBreak>(), 600);
+            if (
+                !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.EmeraldBreak>())
+                || !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.RubyBreak>())
+                || !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.DiamondBreak>())
+            )
+            {
+                target.AddBuff(ModContent.BuffType<Buffs.GemScepters.SapphireBreak>(), 600);
+            }
+            var WeakerBuffs = new[]
+            {
+                ModContent.BuffType<Buffs.GemScepters.AmethystBreak>(),
+                ModContent.BuffType<Buffs.GemScepters.TopazBreak>(),
+            };
+
+            foreach (var buff in WeakerBuffs)
+            {
+                if (target.HasBuff(buff))
+                {
+                    target.DelBuff(buff);
+                }
+            }
         }
     }
 }
