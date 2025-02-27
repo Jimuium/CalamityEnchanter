@@ -2,7 +2,6 @@ using System;
 using CalamityEnchanter.Buffs;
 using CalamityEnchanter.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
-using Iced.Intel;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -29,7 +28,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
         public override void AI()
         {
             foreach(Player player in Main.player){
-                if(player.active && Math.Sqrt((player.position.X-Main.LocalPlayer.position.X)*(player.position.X-Main.LocalPlayer.position.X)+(player.position.Y-Main.LocalPlayer.position.Y)*(player.position.Y-Main.LocalPlayer.position.Y))<500){
+                if(player.active && Math.Sqrt((player.position.X-Main.LocalPlayer.position.X)*(player.position.X-Main.LocalPlayer.position.X)+(player.position.Y-Main.LocalPlayer.position.Y)*(player.position.Y-Main.LocalPlayer.position.Y))<100){
                     //player.AddBuff(ModContent.BuffType<Buffs.StoneShieldUp>(), 240);
                     Projectile.NewProjectile(
                         Main.LocalPlayer.GetSource_FromThis(),
