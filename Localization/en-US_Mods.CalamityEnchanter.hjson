@@ -52,7 +52,7 @@ Items: {
 
 	EnchanterEmblem: {
 		DisplayName: Enchanter Emblem
-		Tooltip: ""
+		Tooltip: 15% increased hex damage
 	}
 }
 
