@@ -58,6 +58,21 @@ Items: {
 		Tooltip: ""
 	
 	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -69,6 +84,11 @@ Projectiles: {
 	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
 	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
 	CursedStaffProjectile.DisplayName: Cursed Staff Projectile
+	ShieldUpIcon.DisplayName: Shield Up Icon
+	StoneStaffProjectile.DisplayName: Stone Staff Projectile
+	PlaceholderProjectile.DisplayName: Placeholder Projectile
+	Tree.DisplayName: Tree
+	HammerProjectile.DisplayName: Hammer Projectile
 }
 
 Buffs: {

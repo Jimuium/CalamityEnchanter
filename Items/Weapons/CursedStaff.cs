@@ -22,12 +22,12 @@ namespace CalamityEnchanter.Items.Weapons
 
             Item.DamageType = ModContent.GetInstance<HexDamageClass>();
             Item.noMelee = true;
-            Item.mana = 2;
-            Item.damage = 20;
-            Item.knockBack = 20.0f;
+            Item.mana = 4;
+            Item.damage = 8;
+            Item.knockBack = 3.0f;
 
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useTime = 12;
+            Item.useAnimation = 12;
             Item.UseSound = SoundID.Item71;
             Item.shoot = ModContent.ProjectileType<CursedStaffProjectile>();
             Item.shootSpeed = 10f;

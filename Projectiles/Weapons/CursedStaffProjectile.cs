@@ -21,7 +21,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
             Projectile.aiStyle = -1;
 
-            Projectile.penetrate = 3;
+            Projectile.penetrate = 10;
         }
 
 

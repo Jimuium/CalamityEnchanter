@@ -1,6 +1,8 @@
+using System;
 using CalamityEnchanter.Buffs;
 using CalamityEnchanter.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
+using Iced.Intel;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -11,6 +13,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
 {
     internal class AmethystScepterProjectile : ModProjectile
     {
+        int num = Main.rand.Next(3,8);
         public override void SetDefaults()
         {
             Projectile.width = 16;
@@ -30,7 +33,20 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             Projectile.ai[0]++;
             if (Projectile.ai[0] == 60)
             {
+                for (int i = 0; i < num; i++)
+                {
+                    double angle = i * Math.PI / (2 * num - 1) + Math.PI / 4;
+                    Dust.NewDust(
+                        Projectile.Center,
+                        Projectile.width,
+                        Projectile.height,
+                        DustID.GemAmethyst,
+                        (float)(Math.Cos(angle) * 2),
+                        (float)(Math.Sin(angle) * -3)
+                    );
+                }
                 Projectile.Kill();
+
             }
 
             Projectile.rotation =
@@ -42,22 +58,40 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
 
             if (Main.rand.NextBool(2))
             {
-                int numToSpawn = Main.rand.Next(3);
-                for (int i = 0; i < numToSpawn; i++)
+                for (int i = 0; i < num; i++)
                 {
-                    Dust.NewDust(
+                    int index = Dust.NewDust(
                         Projectile.position,
                         Projectile.width,
                         Projectile.height,
                         DustID.GemAmethyst
                     );
+
+                    Dust dust = Main.dust[index];
+                    dust.noGravity = true;
                 }
             }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (
+            int numToSpawn = Main.rand.Next(3, 8);
+            for (int i = 0; i < numToSpawn; i++)
+            {
+                double angle = i * Math.PI / (2 * numToSpawn - 1) + Math.PI / 4;
+                Dust.NewDust(
+                    target.Center,
+                    Projectile.width,
+                    Projectile.height,
+                    DustID.GemAmethyst,
+                    (float)(Math.Cos(angle) * 2),
+                    (float)(Math.Sin(angle) * -3)
+                );
+
+            }
+            ;
+
+            /*if (
                 !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.TopazBreak>())
                 && !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.SapphireBreak>())
                 && !target.HasBuff(ModContent.BuffType<Buffs.GemScepters.EmeraldBreak>())
@@ -66,7 +100,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             )
             {
                 target.AddBuff(ModContent.BuffType<Buffs.GemScepters.AmethystBreak>(), 600);
-            }
+            }*/
         }
     }
 }
