@@ -34,6 +34,11 @@ namespace CalamityEnchanter.Buffsystem
                         case "MoveSpeedMutl":
                             Player.moveSpeed += bonus.Amount;
                             break;
+                        /*how to create an effect
+                        case "title for the case, should tell what stat and how it changes them. As a string ofc"
+                            Stat to  and way to increase
+                            break; to stop the function
+                        */
                     }
                 }
                 bonus.Duration--;
@@ -43,6 +48,25 @@ namespace CalamityEnchanter.Buffsystem
                     PlayerBonus.Remove(key);
                 }
             }
+        }
+
+        public bool TryAddBonus(string key, int amount, int duration)
+        {
+            if (PlayerBonus.TryGetValue(key, out var existingBonus))
+            {
+                if (amount < existingBonus.Amount)
+                {
+                    return false;
+                }
+                if (amount == existingBonus.Amount && duration < existingBonus.Duration)
+                {
+                    existingBonus.Duration = duration;
+                    return true;
+                }
+            }
+
+            PlayerBonus[key] = new Bonus(amount, duration);
+            return true;
         }
     }
 
@@ -59,7 +83,7 @@ namespace CalamityEnchanter.Buffsystem
             IsActive = false;
         }
         /*
-        full usage. use when player should get the buff: 
+        full usage. use when player should get the buff:
         player.GetModPlayer<PlayerOrbStats>().PlayerBonus["DefenceUp"] = new Bonus(10, 600);
         
         */
