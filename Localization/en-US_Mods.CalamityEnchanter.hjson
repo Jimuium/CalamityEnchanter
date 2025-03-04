@@ -73,6 +73,21 @@ Items: {
 		DisplayName: Hammer
 		Tooltip: ""
 	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

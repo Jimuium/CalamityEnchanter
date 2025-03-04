@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Creative;
@@ -17,7 +18,8 @@ namespace CalamityEnchanter.Dusts.Weapons
         public override bool Update(Dust dust)
         {
             dust.position += dust.velocity;
-            dust.rotation += dust.velocity.X * 0.15f;
+            //dust.rotation += dust.velocity.X * 0.15f;
+            dust.rotation = 0;
             dust.scale *= 0.98f;
             if (dust.scale < 0.5f)
             {
