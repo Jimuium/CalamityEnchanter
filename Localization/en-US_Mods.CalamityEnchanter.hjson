@@ -54,6 +54,11 @@ Items: {
 		DisplayName: Enchanter Emblem
 		Tooltip: ""
 	}
+
+	LivingWoodHealingStaff: {
+		DisplayName: Living Wood Healing Staff
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -64,6 +69,7 @@ Projectiles: {
 	RubyScepterProjectile.DisplayName: Ruby Scepter Projectile
 	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
 	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
+	LivingWoodHealingProjectile.DisplayName: Living Wood Healing Projectile
 }
 
 Buffs: {
