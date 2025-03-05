@@ -9,7 +9,7 @@ namespace CalamityEnchanter.Items.Weapons
 {
     internal class WoodenHexStaff : ModItem
     {
-        int FuryEnergyCost = 10;
+        int ResourceCost = 3;
 
         public override void SetDefaults()
         {
@@ -23,7 +23,7 @@ namespace CalamityEnchanter.Items.Weapons
             Item.maxStack = 1;
 
             Item.noMelee = true;
-            Item.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
             Item.mana = 4;
             Item.damage = 8;
             Item.knockBack = 2f;
@@ -37,16 +37,18 @@ namespace CalamityEnchanter.Items.Weapons
         {
             var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
 
-            return FuryEnergyPlayer.FuryEnergyCurrent >= FuryEnergyCost;
+            return FuryEnergyPlayer.FuryEnergyCurrent >= ResourceCost;
         }
 
         public override bool? UseItem(Player player)
         {
             var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
 
-            FuryEnergyPlayer.FuryEnergyCurrent -= FuryEnergyCost;
+            FuryEnergyPlayer.FuryEnergyCurrent -= ResourceCost;
 
             return true;
         }
+
+        
     }
 }

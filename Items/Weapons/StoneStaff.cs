@@ -1,4 +1,5 @@
 using CalamityEnchanter.Common.DamageClasses;
+using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
 using Terraria.GameContent.Creative;
@@ -9,6 +10,8 @@ namespace CalamityEnchanter.Items.Weapons
 {
     internal class StoneStaff : ModItem
     {
+        int ResourceCost = 15;
+
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,7 +24,6 @@ namespace CalamityEnchanter.Items.Weapons
             Item.useStyle = ItemUseStyleID.HoldUp;
 
             Item.noMelee = true;
-            Item.mana = 2;
             Item.damage = 0;
             Item.knockBack = 0f;
 
@@ -30,13 +32,33 @@ namespace CalamityEnchanter.Items.Weapons
             Item.UseSound = SoundID.Item71;
             Item.shoot = ModContent.ProjectileType<StoneStaffProjectile>();
             Item.shootSpeed = 0f;
-            Item.value = Item.buyPrice(silver: 2, copper: 40);
+            Item.value = Item.buyPrice(silver: 69, copper: 69);
             Item.maxStack = 1;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.StoneBlock, 24)
+                .AddRecipeGroup(RecipeGroupID.IronBar, 6)
+                .AddIngredient(ItemID.Diamond, 2)
+                .Register();
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            var HolyPoolPlayer = player.GetModPlayer<HolyPoolPlayer>();
+
+            return HolyPoolPlayer.HolyPoolCurrent >= ResourceCost;
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            var HolyPoolPlayer = player.GetModPlayer<HolyPoolPlayer>();
+
+            HolyPoolPlayer.HolyPoolCurrent -= ResourceCost;
+
+            return true;
         }
     }
 }

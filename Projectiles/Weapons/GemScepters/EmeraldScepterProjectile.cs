@@ -14,7 +14,7 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
-            Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Projectile.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
 
             Projectile.aiStyle = -1;
             Projectile.scale = 0.75f;

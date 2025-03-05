@@ -1,7 +1,4 @@
-using CalamityEnchanter.Buffs;
 using CalamityEnchanter.Common.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
-using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -17,7 +14,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
-            Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Projectile.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
 
             Projectile.aiStyle = -1;
 
