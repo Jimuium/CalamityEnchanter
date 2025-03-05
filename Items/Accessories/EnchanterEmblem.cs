@@ -1,4 +1,4 @@
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
