@@ -32,8 +32,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.maxStack = 1;
 
             Item.noMelee = true;
-            Item.DamageType = ModContent.GetInstance<HexDamageClass>();
-            Item.mana = 16;
+            Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
             Item.damage = 23;
             Item.knockBack = 7f;
 
