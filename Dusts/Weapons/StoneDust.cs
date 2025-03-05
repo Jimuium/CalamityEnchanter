@@ -23,7 +23,7 @@ namespace CalamityEnchanter.Dusts.Weapons
                 dust.active = false;
             }
 
-            Lighting.AddLight(dust.position, new Vector3(255 / 255f, 255f / 255f, 255f / 255f));
+            Lighting.AddLight(dust.position, new Vector3(120f / 255f, 120f / 255f, 120f / 255f));
 
             return false;
         }
