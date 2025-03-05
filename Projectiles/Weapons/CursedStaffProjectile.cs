@@ -1,7 +1,4 @@
-using CalamityEnchanter.Buffs;
 using CalamityEnchanter.Common.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
-using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -9,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Projectiles.Weapons
 {
-    internal class WoodenHexStaffProjectile : ModProjectile
+    internal class CursedStaffProjectile : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -21,22 +18,24 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
             Projectile.aiStyle = -1;
 
-            Projectile.penetrate = 3;
+            Projectile.penetrate = 10;
         }
 
         public override void AI()
         {
+            Projectile.velocity.Y += 0.1f;
+            if (Projectile.velocity.Y > 16f)
+            {
+                Projectile.velocity.Y = 16f;
+            }
             Projectile.ai[0]++;
-            Projectile.velocity *= 0.995f;
+            Projectile.velocity *= 1.005f;
             if (Projectile.ai[0] == 60)
             {
                 Projectile.Kill();
             }
-
-            Projectile.rotation =
-                Projectile.velocity.ToRotation()
-                + MathHelper.PiOver2
-                - MathHelper.PiOver4 * Projectile.spriteDirection;
+            float rotateSpeed = 0.5f * (float)Projectile.direction;
+            Projectile.rotation += rotateSpeed;
 
             Lighting.AddLight(Projectile.Center, new Vector3(141f / 255f, 76f / 255f, 167f / 255f));
 
@@ -49,7 +48,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
                         Projectile.position,
                         Projectile.width,
                         Projectile.height,
-                        ModContent.DustType<HexDust>(),
+                        DustID.Water_BloodMoon,
                         Projectile.velocity.X * 0.1f,
                         Projectile.velocity.Y * 0.1f,
                         0,
@@ -62,7 +61,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Tier1HexedDebuff>(), 360);
+            target.AddBuff(ModContent.BuffType<Buffs.CurseSlowdown>(), 240);
         }
     }
 }

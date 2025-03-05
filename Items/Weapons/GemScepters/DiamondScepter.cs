@@ -1,4 +1,5 @@
 using CalamityEnchanter.Common.DamageClasses;
+using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons.GemScepters;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -10,6 +11,8 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
 {
     internal class DiamondScepter : ModItem
     {
+        int ResourceCost = 5;
+
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -29,8 +32,7 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
             Item.maxStack = 1;
 
             Item.noMelee = true;
-            Item.DamageType = ModContent.GetInstance<HexDamageClass>();
-            Item.mana = 16;
+            Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
             Item.damage = 24;
             Item.knockBack = 7f;
 
@@ -51,6 +53,22 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-6f, 0f);
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            return FuryEnergyPlayer.FuryEnergyCurrent >= ResourceCost;
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            FuryEnergyPlayer.FuryEnergyCurrent -= ResourceCost;
+
+            return true;
         }
     }
 }

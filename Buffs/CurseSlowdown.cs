@@ -1,12 +1,11 @@
 using CalamityEnchanter.Common.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Buffs
 {
-    public class Tier1HexedDebuff : ModBuff
+    public class CurseSlowdown : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -19,23 +18,18 @@ namespace CalamityEnchanter.Buffs
             if (target.buffTime[buffIndex] % 60 == 0)
             {
                 target.SimpleStrikeNPC(
-                    8,
+                    10,
                     1,
                     false,
                     0,
                     ModContent.GetInstance<WrathHexDamageClass>()
                 );
             }
-            target.velocity *= 0.9f;
+            target.velocity *= 0.975f;
 
-            if (Main.rand.NextBool(3))
+            if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(
-                    target.position,
-                    target.width,
-                    target.height,
-                    ModContent.DustType<HexDust>()
-                );
+                Dust.NewDust(target.position, target.width, target.height, DustID.Water_BloodMoon);
             }
         }
     }

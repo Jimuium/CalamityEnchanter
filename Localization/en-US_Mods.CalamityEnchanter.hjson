@@ -50,8 +50,42 @@ Items: {
 		Tooltip: Aplies Topaz Break decreasing the enemys defense by 5 for 10 seconds
 	}
 
+
 	EnchanterEmblem: {
 		DisplayName: Enchanter Emblem
+	}
+	CursedStaff: {
+		DisplayName: Cursed Staff
+		Tooltip: ""
+	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
+		Tooltip: ""
+	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
 		Tooltip: ""
 	}
 }
@@ -64,6 +98,12 @@ Projectiles: {
 	RubyScepterProjectile.DisplayName: Ruby Scepter Projectile
 	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
 	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
+	CursedStaffProjectile.DisplayName: Cursed Staff Projectile
+	ShieldUpIcon.DisplayName: Shield Up Icon
+	StoneStaffProjectile.DisplayName: Stone Staff Projectile
+	PlaceholderProjectile.DisplayName: Placeholder Projectile
+	Tree.DisplayName: Tree
+	HammerProjectile.DisplayName: Hammer Projectile
 }
 
 Buffs: {
@@ -110,6 +150,11 @@ Buffs: {
 	TopazBreak: {
 		DisplayName: Topaz Break
 		Description: Your armor has been crystallized with rubies, -5 defence
+	}
+
+	CurseSlowdown: {
+		DisplayName: Curse Slowdown
+		Description: Mods.CalamityEnchanter.Buffs.CurseSlowdown.Description
 	}
 }
 

@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Dusts.Weapons
 {
-    internal class HexDust : ModDust
+    internal class HellDust : ModDust
     {
         public override void OnSpawn(Dust dust)
         {
@@ -21,8 +21,13 @@ namespace CalamityEnchanter.Dusts.Weapons
             {
                 dust.active = false;
             }
-
-            Lighting.AddLight(dust.position, new Vector3(141f / 255f, 76f / 255f, 167f / 255f));
+            for (int i = -5; i < 6; i++)
+            {
+                Lighting.AddLight(
+                    dust.position,
+                    new Vector3(255f / (255f + i), 69f / (255f + i), 0f / (255f + i))
+                );
+            }
 
             return false;
         }

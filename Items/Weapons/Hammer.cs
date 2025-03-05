@@ -1,17 +1,16 @@
 using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Common.ModPlayers;
-using CalamityEnchanter.Projectiles.Weapons.GemScepters;
-using Microsoft.Xna.Framework;
+using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace CalamityEnchanter.Items.Weapons.GemScepters
+namespace CalamityEnchanter.Items.Weapons
 {
-    internal class SapphireScepter : ModItem
+    internal class Hammer : ModItem
     {
-        int ResourceCost = 5;
+        int ResourceCost = 3;
 
         public override void SetStaticDefaults()
         {
@@ -20,39 +19,30 @@ namespace CalamityEnchanter.Items.Weapons.GemScepters
 
         public override void SetDefaults()
         {
-            Item.width = 48;
-            Item.height = 48;
-            Item.useTime = 35;
-            Item.useAnimation = 35;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.autoReuse = true;
-            Item.rare = ItemRarityID.Blue;
+            Item.width = 16;
+            Item.height = 16;
+            Item.useStyle = ItemUseStyleID.Swing;
 
-            Item.value = Item.buyPrice(silver: 25);
-            Item.maxStack = 1;
-
-            Item.noMelee = true;
             Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
-            Item.damage = 21;
-            Item.knockBack = 6f;
+            Item.noMelee = true;
+            Item.damage = 32;
+            Item.knockBack = 8.0f;
 
-            Item.UseSound = SoundID.Item43;
-            Item.shoot = ModContent.ProjectileType<SapphireScepterProjectile>();
-            Item.shootSpeed = 12f;
+            Item.useTime = 18;
+            Item.useAnimation = 18;
+            Item.UseSound = SoundID.Item71;
+            Item.shoot = ModContent.ProjectileType<HammerProjectile>();
+            Item.shootSpeed = 25f;
+            Item.value = Item.buyPrice(gold: 2, silver: 50);
+            Item.maxStack = 1;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.SilverBar, 12)
-                .AddIngredient(ItemID.Sapphire, 10)
-                .AddTile(TileID.Anvils)
+                .AddIngredient(ItemID.HellstoneBar, 12)
+                .AddIngredient(ItemID.Fireblossom, 6)
                 .Register();
-        }
-
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-6f, 0f);
         }
 
         public override bool CanUseItem(Player player)

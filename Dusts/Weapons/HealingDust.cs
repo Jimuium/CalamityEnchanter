@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Dusts.Weapons
 {
-    internal class HexDust : ModDust
+    internal class HealingDust : ModDust
     {
         public override void OnSpawn(Dust dust)
         {
             dust.noGravity = true;
-            dust.noLight = true;
+            dust.noLight = false;
         }
 
         public override bool Update(Dust dust)
@@ -21,8 +21,7 @@ namespace CalamityEnchanter.Dusts.Weapons
             {
                 dust.active = false;
             }
-
-            Lighting.AddLight(dust.position, new Vector3(141f / 255f, 76f / 255f, 167f / 255f));
+            Lighting.AddLight(dust.position, new Vector3(255f / 255f, 215 / 255f, 0f / 255f));
 
             return false;
         }

@@ -2,35 +2,39 @@ using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Items.Weapons
 {
-    internal class WoodenHexStaff : ModItem
+    internal class CursedStaff : ModItem
     {
-        int ResourceCost = 3;
+        int ResourceCost = 2;
+
+        public override void SetStaticDefaults()
+        {
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
 
         public override void SetDefaults()
         {
-            Item.width = 64;
-            Item.height = 64;
-            Item.useTime = 32;
-            Item.useAnimation = 20;
+            Item.width = 16;
+            Item.height = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
 
-            Item.value = Item.buyPrice(silver: 2, copper: 40);
-            Item.maxStack = 1;
-
-            Item.noMelee = true;
             Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
-            Item.mana = 4;
+            Item.noMelee = true;
             Item.damage = 8;
-            Item.knockBack = 2f;
+            Item.knockBack = 3.0f;
 
+            Item.useTime = 12;
+            Item.useAnimation = 12;
             Item.UseSound = SoundID.Item71;
-            Item.shoot = ModContent.ProjectileType<WoodenHexStaffProjectile>();
-            Item.shootSpeed = 12f;
+            Item.shoot = ModContent.ProjectileType<CursedStaffProjectile>();
+            Item.shootSpeed = 10f;
+            Item.value = Item.buyPrice(gold: 1);
+            Item.maxStack = 1;
         }
 
         public override bool CanUseItem(Player player)
@@ -48,7 +52,5 @@ namespace CalamityEnchanter.Items.Weapons
 
             return true;
         }
-
-        
     }
 }
