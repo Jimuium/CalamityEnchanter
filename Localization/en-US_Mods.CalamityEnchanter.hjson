@@ -63,6 +63,15 @@ Items: {
 			Damage scales with the amount of players in the ring
 			'''
 	}
+
+	BloodyCross: {
+		DisplayName: Bloody Cross
+		Tooltip:
+			'''
+			Gives a momentary damage and crit chance increase at the cost of your health
+			Damage scales with the amount of players in the ring
+			'''
+	}
 }
 
 Projectiles: {
@@ -74,6 +83,7 @@ Projectiles: {
 	SapphireScepterProjectile.DisplayName: Sapphire Scepter Projectile
 	TopazScepterProjectile.DisplayName: Topaz Scepter Projectile
 	DemonCrossProjectile.DisplayName: Demon Cross Projectile
+	BloodyCrossProjectile.DisplayName: Bloody Cross Projectile
 }
 
 Buffs: {
@@ -128,6 +138,15 @@ Buffs: {
 			'''
 			10% damage boost
 			"Balkan Rage!"
+			'''
+	}
+
+	Bloodlust: {
+		DisplayName: Bloodlust
+		Description:
+			'''
+			12% crit chance increase
+			"Is that a GD reference?!"
 			'''
 	}
 }

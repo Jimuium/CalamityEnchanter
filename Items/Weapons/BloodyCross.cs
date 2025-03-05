@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Items.Weapons
 {
-    internal class DemonCross : ModItem
+    internal class BloodyCross : ModItem
     {
         public override void SetDefaults()
         {
@@ -29,25 +29,25 @@ namespace CalamityEnchanter.Items.Weapons
 
             Item.channel = true;
             Item.UseSound = SoundID.Item103;
-            Item.shoot = ModContent.ProjectileType<DemonCrossProjectile>();
+            Item.shoot = ModContent.ProjectileType<BloodyCrossProjectile>();
             Item.shootSpeed = 12f;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DemoniteBar,14);
-            recipe.AddIngredient(ItemID.GoldBar, 1);
-            recipe.AddIngredient(ItemID.Ruby,1);
-            recipe.AddIngredient(ItemID.VilePowder,6);
+            recipe.AddIngredient(ItemID.CrimtaneBar,14);
+            recipe.AddIngredient(ItemID.SilverBar,1);
+            recipe.AddIngredient(ItemID.Amethyst,1);
+            recipe.AddIngredient(ItemID.ViciousPowder,6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
 
             Recipe recipe_alt = CreateRecipe();
-            recipe_alt.AddIngredient(ItemID.DemoniteBar,14);
-            recipe_alt.AddIngredient(ItemID.PlatinumBar, 1);
-            recipe_alt.AddIngredient(ItemID.Ruby,1);
-            recipe_alt.AddIngredient(ItemID.VilePowder,6);
+            recipe_alt.AddIngredient(ItemID.CrimtaneBar,14);
+            recipe_alt.AddIngredient(ItemID.TungstenBar,1);
+            recipe_alt.AddIngredient(ItemID.Amethyst,1);
+            recipe_alt.AddIngredient(ItemID.ViciousPowder,6);
             recipe_alt.AddTile(TileID.DemonAltar);
             recipe_alt.Register();
 

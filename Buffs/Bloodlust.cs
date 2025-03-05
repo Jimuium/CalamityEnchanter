@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Buffs
 {
-    public class DemonsRage : ModBuff
+    public class Bloodlust : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -16,7 +16,7 @@ namespace CalamityEnchanter.Buffs
 
         public override void Update (Player target, ref int buffIndex)
         {
-            target.GetDamage(DamageClass.Generic) += 0.1f;
+            target.GetCritChance(DamageClass.Generic) += 10f;
         }
 
     }

@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Projectiles.Weapons
 {
-    internal class DemonCrossProjectile : ModProjectile
+    internal class BloodyCrossProjectile : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -40,7 +40,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
                         new Vector2(96 * (float)Math.Cos(i), 96 * (float)Math.Sin(i)) + target.position,
                         16,
                         16,                        
-                        ModContent.DustType<DemonDust>(),
+                        ModContent.DustType<BloodyDust>(),
                         Projectile.velocity.X * 0.1f,
                         Projectile.velocity.Y * 0.1f
                     );
@@ -53,10 +53,10 @@ namespace CalamityEnchanter.Projectiles.Weapons
             int damagePool = 0;
             foreach(Player player in Main.player)
             {
-                if(player.active && Vector2.Distance(player.Center, Projectile.Center) < 96 && !target.HasBuff(ModContent.BuffType<Buffs.Bloodlust>()))
+                if(player.active && Vector2.Distance(player.Center, Projectile.Center) < 96 && !target.HasBuff(ModContent.BuffType<Buffs.DemonsRage>()))
                 {
                     damagePool += 10;
-                    player.AddBuff(ModContent.BuffType<Buffs.DemonsRage>(), 900);
+                    player.AddBuff(ModContent.BuffType<Buffs.Bloodlust>(), 900);
                 }
             }
             if (Projectile.ai[1] == 0)
@@ -68,7 +68,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
             
             if (target.statLife <= 0)
             {
-                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " got too angry!"), damagePool, 0);
+                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " bled out!"), damagePool, 0);
             }
         }
     }
