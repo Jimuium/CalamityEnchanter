@@ -5,6 +5,7 @@ using CalamityEnchanter.Dusts.Weapons;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,33 +20,56 @@ namespace CalamityEnchanter.Projectiles.Weapons
         Projectile.friendly = false;
         Projectile.ignoreWater = true;
         Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
+        Projectile.tileCollide = false;
 
         Projectile.aiStyle = -1;
 
         Projectile.penetrate = 3;
         }
-        public override void PostAI()
+        public override void AI()
         {
             Player target = Main.player[Projectile.owner];
             Projectile.localAI[1]++;
             Projectile.position = target.position;
-            Main.NewText("Projectile at:" + Projectile.position);
             if (Projectile.localAI[1] % 5 == 0)
             {
-                for (int i = 1; i < 90; i++)
+                for (int i = 1; i < 360; i++)
                 {
-                    Main.NewText("Dust at: " + new Vector2(64 * (float)Math.Cos(i * 4), 64 * (float)Math.Sin(i * 4)) + target.position);
-                    Dust.NewDustPerfect
+                    Dust.NewDust
                     (
-                        new Vector2(64 * (float)Math.Cos(i * Math.PI /45), 64 * (float)Math.Sin(i * Math.PI /45)) + target.position,
-                        ModContent.DustType<DemonDust>()
+                        new Vector2(96 * (float)Math.Cos(i), 96 * (float)Math.Sin(i)) + target.position,
+                        16,
+                        16,                        
+                        ModContent.DustType<DemonDust>(),
+                        Projectile.velocity.X * 0.1f,
+                        Projectile.velocity.Y * 0.1f
                     );
                 }
             }
-            if (Projectile.localAI[1] == 19)
+            if (Projectile.localAI[1] == 25)
             {
                 Projectile.Kill();
             }
+            int damagePool = 0;
+            foreach(Player player in Main.player)
+            {
+                if(player.active && Vector2.Distance(player.Center, Projectile.Center) < 96)
+                {
+                    damagePool += 10;
+                    player.AddBuff(ModContent.BuffType<Buffs.DemonsRage>(), 900);
+                }
+            }
+            if (Projectile.ai[1] == 0)
+            {
+                target.statLife -= damagePool;
+                CombatText.NewText(target.Hitbox, Color.Red, damagePool, true, false);
+                Projectile.ai[1]=1;
+            }
+            
+            if (target.statLife <= 0)
+            {
+                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " got too angry!"), damagePool, 0);
+            }
         }
     }
-}
+} 

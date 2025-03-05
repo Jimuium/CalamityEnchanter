@@ -18,8 +18,8 @@ namespace CalamityEnchanter.Dusts.Weapons
         public override bool Update(Dust dust)
         {
             dust.rotation += dust.velocity.X * 0.15f;
-            dust.scale *= 0.9f;
-            if(dust.scale <0.3f){
+            dust.scale *= 0.98f;
+            if(dust.scale <0.5f){
                 dust.active=false;
             }
         

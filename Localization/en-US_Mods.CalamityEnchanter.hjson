@@ -22,32 +22,32 @@ Items: {
 
 	AmethystScepter: {
 		DisplayName: Amethyst Scepter
-		Tooltip: Aplies Amethyst Break decreasing the enemys defense by 4 for 10 seconds
+		Tooltip: Applies Amethyst Break decreasing the enemys defense by 4 for 10 seconds
 	}
 
 	DiamondScepter: {
 		DisplayName: Diamond Scepter
-		Tooltip: Aplies Diamond Break decreasing the enemys defense by 10 for 10 seconds
+		Tooltip: Applies Diamond Break decreasing the enemys defense by 10 for 10 seconds
 	}
 
 	EmeraldScepter: {
 		DisplayName: Emerald Scepter
-		Tooltip: Aplies Emerald Break decreasing the enemys defense by 7 for 10 seconds
+		Tooltip: Applies Emerald Break decreasing the enemys defense by 7 for 10 seconds
 	}
 
 	RubyScepter: {
 		DisplayName: Ruby Scepter
-		Tooltip: Aplies Ruby Break decreasing the enemys defense by 9 for 10 seconds
+		Tooltip: Applies Ruby Break decreasing the enemys defense by 9 for 10 seconds
 	}
 
 	SapphireScepter: {
 		DisplayName: Sapphire Scepter
-		Tooltip: Aplies Sapphire Break decreasing the enemys defense by 6 for 10 seconds
+		Tooltip: Applies Sapphire Break decreasing the enemys defense by 6 for 10 seconds
 	}
 
 	TopazScepter: {
 		DisplayName: Topaz Scepter
-		Tooltip: Aplies Topaz Break decreasing the enemys defense by 5 for 10 seconds
+		Tooltip: Applies Topaz Break decreasing the enemys defense by 5 for 10 seconds
 	}
 
 	EnchanterEmblem: {
@@ -57,7 +57,11 @@ Items: {
 
 	DemonCross: {
 		DisplayName: Demon Cross
-		Tooltip: ""
+		Tooltip:
+			'''
+			Gives a momentary damage increase to everyone in the ring at the cost of your health
+			Damage scales with the amount of players in the ring
+			'''
 	}
 }
 
@@ -116,6 +120,15 @@ Buffs: {
 	TopazBreak: {
 		DisplayName: Topaz Break
 		Description: Your armor has been crystallized with rubies, -5 defence
+	}
+
+	DemonsRage: {
+		DisplayName: Demon's Rage
+		Description:
+			'''
+			10% damage boost
+			"Balkan Rage!"
+			'''
 	}
 }
 
