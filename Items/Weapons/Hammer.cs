@@ -1,4 +1,4 @@
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
 using Terraria.GameContent.Creative;

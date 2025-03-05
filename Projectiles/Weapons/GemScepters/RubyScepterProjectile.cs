@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using CalamityEnchanter.Buffs;
-using CalamityEnchanter.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
-using Microsoft.Build.Evaluation;
+using CalamityEnchanter.Common.DamageClasses;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

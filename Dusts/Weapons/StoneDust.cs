@@ -1,8 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent.Creative;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Dusts.Weapons
@@ -21,14 +18,14 @@ namespace CalamityEnchanter.Dusts.Weapons
             //dust.rotation += dust.velocity.X * 0.15f;
             dust.rotation = 0;
             dust.scale *= 0.98f;
-            if(dust.scale <0.1f){
-                dust.active=false;
+            if (dust.scale < 0.1f)
+            {
+                dust.active = false;
             }
-        
-        Lighting.AddLight(dust.position, new Vector3(120f / 255f, 120f / 255f, 120f / 255f));
 
-        return false;
+            Lighting.AddLight(dust.position, new Vector3(120f / 255f, 120f / 255f, 120f / 255f));
+
+            return false;
         }
-
     }
 }
