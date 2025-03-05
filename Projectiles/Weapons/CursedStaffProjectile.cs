@@ -1,5 +1,5 @@
 using CalamityEnchanter.Buffs;
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
@@ -11,7 +11,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
 {
     internal class CursedStaffProjectile : ModProjectile
     {
- public override void SetDefaults()
+        public override void SetDefaults()
         {
             Projectile.width = 16;
             Projectile.height = 16;
@@ -23,7 +23,6 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
             Projectile.penetrate = 10;
         }
-
 
         public override void AI()
         {

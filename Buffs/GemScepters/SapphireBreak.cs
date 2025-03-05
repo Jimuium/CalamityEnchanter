@@ -1,5 +1,3 @@
-using CalamityEnchanter.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

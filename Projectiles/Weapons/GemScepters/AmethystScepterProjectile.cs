@@ -1,6 +1,6 @@
 using System;
 using CalamityEnchanter.Buffs;
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
 using Iced.Intel;
 using Microsoft.Build.Evaluation;
@@ -13,7 +13,8 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
 {
     internal class AmethystScepterProjectile : ModProjectile
     {
-        int num = Main.rand.Next(3,8);
+        int num = Main.rand.Next(3, 8);
+
         public override void SetDefaults()
         {
             Projectile.width = 16;
@@ -46,7 +47,6 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
                     );
                 }
                 Projectile.Kill();
-
             }
 
             Projectile.rotation =
@@ -87,7 +87,6 @@ namespace CalamityEnchanter.Projectiles.Weapons.GemScepters
                     (float)(Math.Cos(angle) * 2),
                     (float)(Math.Sin(angle) * -3)
                 );
-
             }
             ;
 

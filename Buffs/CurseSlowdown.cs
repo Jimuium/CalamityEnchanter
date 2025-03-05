@@ -1,5 +1,4 @@
-using CalamityEnchanter.DamageClasses;
-using CalamityEnchanter.Dusts.Weapons;
+using CalamityEnchanter.Common.DamageClasses;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,16 +19,11 @@ namespace CalamityEnchanter.Buffs
             {
                 target.SimpleStrikeNPC(8, 1, false, 0, ModContent.GetInstance<HexDamageClass>());
             }
-            target.velocity*=0.975f;
+            target.velocity *= 0.975f;
 
             if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(
-                    target.position,
-                    target.width,
-                    target.height,
-                    DustID.Water_BloodMoon
-                );
+                Dust.NewDust(target.position, target.width, target.height, DustID.Water_BloodMoon);
             }
         }
     }
