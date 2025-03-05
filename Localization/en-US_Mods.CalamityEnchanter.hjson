@@ -50,13 +50,13 @@ Items: {
 		Tooltip: Aplies Topaz Break decreasing the enemys defense by 5 for 10 seconds
 	}
 
+
 	EnchanterEmblem: {
 		DisplayName: Enchanter Emblem
 	}
 	CursedStaff: {
 		DisplayName: Cursed Staff
 		Tooltip: ""
-	
 	}
 
 	StoneStaff: {
