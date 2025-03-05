@@ -1,4 +1,5 @@
 using CalamityEnchanter.Common.DamageClasses;
+using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
 using Terraria.GameContent.Creative;
@@ -9,6 +10,8 @@ namespace CalamityEnchanter.Items.Weapons
 {
     internal class CursedStaff : ModItem
     {
+        int ResourceCost = 2;
+
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -20,9 +23,8 @@ namespace CalamityEnchanter.Items.Weapons
             Item.height = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
 
-            Item.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
             Item.noMelee = true;
-            Item.mana = 4;
             Item.damage = 8;
             Item.knockBack = 3.0f;
 
@@ -31,13 +33,24 @@ namespace CalamityEnchanter.Items.Weapons
             Item.UseSound = SoundID.Item71;
             Item.shoot = ModContent.ProjectileType<CursedStaffProjectile>();
             Item.shootSpeed = 10f;
-            Item.value = Item.buyPrice(silver: 2, copper: 40);
+            Item.value = Item.buyPrice(gold: 1);
             Item.maxStack = 1;
         }
 
-        public override void AddRecipes()
+        public override bool CanUseItem(Player player)
         {
-            CreateRecipe().Register();
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            return FuryEnergyPlayer.FuryEnergyCurrent >= ResourceCost;
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            FuryEnergyPlayer.FuryEnergyCurrent -= ResourceCost;
+
+            return true;
         }
     }
 }

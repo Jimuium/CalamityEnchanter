@@ -23,6 +23,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
             Projectile.timeLeft = 300;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
+            Projectile.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
         }
 
         public override void AI()
@@ -67,7 +68,6 @@ namespace CalamityEnchanter.Projectiles.Weapons
                     && player.active
                 )
                 {
-                    Main.NewText("Projectile hit a player!");
                     player.AddBuff(BuffID.Regeneration, 180);
                     for (int i = 0; i < 3 * numToSpawn + 2; i++)
                     {

@@ -17,7 +17,13 @@ namespace CalamityEnchanter.Buffs
         {
             if (target.buffTime[buffIndex] % 60 == 0)
             {
-                target.SimpleStrikeNPC(8, 1, false, 0, ModContent.GetInstance<HexDamageClass>());
+                target.SimpleStrikeNPC(
+                    10,
+                    1,
+                    false,
+                    0,
+                    ModContent.GetInstance<WrathHexDamageClass>()
+                );
             }
             target.velocity *= 0.975f;
 
