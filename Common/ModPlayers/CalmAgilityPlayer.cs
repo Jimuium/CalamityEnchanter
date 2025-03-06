@@ -18,7 +18,7 @@ namespace CalamityEnchanter.Common.ModPlayers
         public float CalmAgilityRegenRate; // By changing that variable we can increase/decrease regeneration rate of our resource
         internal int CalmAgilityRegenTimer = 0; // A variable that is required for our timer
         public bool CalmAgilityMagnet = false;
-        public static readonly Color HealCalmAgilityColor = new(255, 93, 48); // The color to use with CombatText when replenishing CalmAgilityCurrent
+        public float CalmAgilityCostMultiplier = 1; // How many times more using items costs resource
 
         // In order to make the Example Resource example straightforward, several things have been left out that would be needed for a fully functional resource similar to mana and health.
         // Here are additional things you might need to implement if you intend to make a custom resource:
