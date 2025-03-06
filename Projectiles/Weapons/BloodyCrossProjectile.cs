@@ -1,6 +1,6 @@
 using System;
 using CalamityEnchanter.Buffs;
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
