@@ -11,14 +11,16 @@ namespace CalamityEnchanter.Common.ModPlayers
     {
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
-        public int CalmAgilityCurrent; // Current value of our example resource
+        public float CalmAgilityCurrent; // Current value of our example resource
         public const int DefaultCalmAgilityMax = 100; // Default maximum value of example resource
         public int CalmAgilityMax; // maximum amount of Resource
         public int CalmAgilityMax2;
         public float CalmAgilityRegenRate; // By changing that variable we can increase/decrease regeneration rate of our resource
         internal int CalmAgilityRegenTimer = 0; // A variable that is required for our timer
         public bool CalmAgilityMagnet = false;
-        public static readonly Color HealCalmAgilityColor = new(255, 93, 48); // The color to use with CombatText when replenishing CalmAgilityCurrent
+        public float CalmAgilityCostMultiplier = 1; // How many times more using items costs resource
+        public float AgilityBuffLengthIncrease = 1;
+        public float AgilityBuffStrengthIncrease = 1;
 
         // In order to make the Example Resource example straightforward, several things have been left out that would be needed for a fully functional resource similar to mana and health.
         // Here are additional things you might need to implement if you intend to make a custom resource:
@@ -61,9 +63,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         {
             CalmAgilityRegenTimer++;
 
-            if (CalmAgilityRegenTimer >= 60 / CalmAgilityRegenRate)
+            if (CalmAgilityRegenTimer >= 30)
             {
-                CalmAgilityCurrent += 1;
+                CalmAgilityCurrent += CalmAgilityMax2 * CalmAgilityRegenRate / 200;
                 CalmAgilityRegenTimer = 0;
             }
 

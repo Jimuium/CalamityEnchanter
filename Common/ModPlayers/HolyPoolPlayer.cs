@@ -11,14 +11,16 @@ namespace CalamityEnchanter.Common.ModPlayers
     {
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
-        public int HolyPoolCurrent; // Current value of our example resource
+        public float HolyPoolCurrent; // Current value of our example resource
         public const int DefaultHolyPoolMax = 100; // Default maximum value of example resource
         public int HolyPoolMax; // maximum amount of Resource
         public int HolyPoolMax2;
         public float HolyPoolRegenRate; // By changing that variable we can increase/decrease regeneration rate of our resource
         internal int HolyPoolRegenTimer = 0; // A variable that is required for our timer
         public bool HolyPoolMagnet = false;
-        public static readonly Color HealHolyPoolColor = new(255, 93, 48); // The color to use with CombatText when replenishing HolyPoolCurrent
+        public float HolyPoolCostMultiplier = 1; // How many times more using items costs resource
+        public float HolyBuffLengthIncrease = 1;
+        public float HolyBuffStrengthIncrease = 1;
 
         // In order to make the Example Resource example straightforward, several things have been left out that would be needed for a fully functional resource similar to mana and health.
         // Here are additional things you might need to implement if you intend to make a custom resource:
@@ -61,9 +63,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         {
             HolyPoolRegenTimer++;
 
-            if (HolyPoolRegenTimer >= 60 / HolyPoolRegenRate)
+            if (HolyPoolRegenTimer >= 30)
             {
-                HolyPoolCurrent += 1;
+                HolyPoolCurrent += HolyPoolMax2 * HolyPoolRegenRate / 200;
                 HolyPoolRegenTimer = 0;
             }
 

@@ -18,6 +18,6 @@ namespace CalamityEnchanter.Common.DamageClasses
             return false;
         }
 
-        public override bool UseStandardCritCalcs => false; // Uses standard crit calculations
+        public override bool UseStandardCritCalcs => true; // Uses standard crit calculations
     }
 }
