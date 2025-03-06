@@ -50,8 +50,42 @@ Items: {
 		Tooltip: Applies Topaz Break decreasing the enemys defense by 5 for 10 seconds
 	}
 
+
 	EnchanterEmblem: {
 		DisplayName: Enchanter Emblem
+	}
+	CursedStaff: {
+		DisplayName: Cursed Staff
+		Tooltip: ""
+	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
+		Tooltip: ""
+	}
+
+	StoneStaff: {
+		DisplayName: Stone Staff
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	Hammer: {
+		DisplayName: Hammer
 		Tooltip: ""
 	}
 
@@ -152,3 +186,9 @@ Buffs: {
 }
 
 DamageClasses.HexDamageClass.DisplayName: Hex Damage
+
+UI: {
+	FuryEnergy: Mods.CalamityEnchanter.UI.FuryEnergy
+	CalmAgility: Mods.CalamityEnchanter.UI.CalmAgility
+	HolyPool: Mods.CalamityEnchanter.UI.HolyPool
+}

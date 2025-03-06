@@ -1,4 +1,5 @@
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
+using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
 using Terraria.ID;
@@ -8,6 +9,8 @@ namespace CalamityEnchanter.Items.Weapons
 {
     internal class WoodenHexStaff : ModItem
     {
+        int ResourceCost = 3;
+
         public override void SetDefaults()
         {
             Item.width = 64;
@@ -20,7 +23,7 @@ namespace CalamityEnchanter.Items.Weapons
             Item.maxStack = 1;
 
             Item.noMelee = true;
-            Item.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Item.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
             Item.mana = 4;
             Item.damage = 8;
             Item.knockBack = 2f;
@@ -29,5 +32,23 @@ namespace CalamityEnchanter.Items.Weapons
             Item.shoot = ModContent.ProjectileType<WoodenHexStaffProjectile>();
             Item.shootSpeed = 12f;
         }
+
+        public override bool CanUseItem(Player player)
+        {
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            return FuryEnergyPlayer.FuryEnergyCurrent >= ResourceCost;
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
+
+            FuryEnergyPlayer.FuryEnergyCurrent -= ResourceCost;
+
+            return true;
+        }
+
+        
     }
 }

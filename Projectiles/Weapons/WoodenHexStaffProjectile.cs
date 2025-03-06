@@ -1,5 +1,5 @@
 using CalamityEnchanter.Buffs;
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
@@ -17,7 +17,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
-            Projectile.DamageType = ModContent.GetInstance<HexDamageClass>();
+            Projectile.DamageType = ModContent.GetInstance<WrathHexDamageClass>();
 
             Projectile.aiStyle = -1;
 
@@ -62,7 +62,7 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Tier1HexedDebuff>(), 240);
+            target.AddBuff(ModContent.BuffType<Buffs.Tier1HexedDebuff>(), 360);
         }
     }
 }

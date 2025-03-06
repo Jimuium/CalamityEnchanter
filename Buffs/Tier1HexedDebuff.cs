@@ -1,4 +1,4 @@
-using CalamityEnchanter.DamageClasses;
+using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
 using Terraria;
 using Terraria.ID;
@@ -18,7 +18,13 @@ namespace CalamityEnchanter.Buffs
         {
             if (target.buffTime[buffIndex] % 60 == 0)
             {
-                target.SimpleStrikeNPC(8, 1, false, 0, ModContent.GetInstance<HexDamageClass>());
+                target.SimpleStrikeNPC(
+                    8,
+                    1,
+                    false,
+                    0,
+                    ModContent.GetInstance<WrathHexDamageClass>()
+                );
             }
             target.velocity *= 0.9f;
 
