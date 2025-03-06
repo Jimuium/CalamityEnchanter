@@ -9,6 +9,8 @@ namespace CalamityEnchanter.Common.ModPlayers
 {
     public class FuryEnergyPlayer : ModPlayer
     {
+        public float convertHealthToFury = 0;
+
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
         public float FuryEnergyCurrent; // Current value of our example resource
@@ -47,6 +49,7 @@ namespace CalamityEnchanter.Common.ModPlayers
             FuryEnergyRegenRate = 1f;
             FuryEnergyMax2 = FuryEnergyMax;
             FuryEnergyMagnet = false;
+            convertHealthToFury = 0;
         }
 
         public override void PostUpdateMiscEffects()
@@ -78,6 +81,18 @@ namespace CalamityEnchanter.Common.ModPlayers
             if (Main.myPlayer == Player.whoAmI && Player.creativeGodMode)
             {
                 FuryEnergyCurrent = FuryEnergyMax2;
+            }
+        }
+
+        public override void OnHurt(Player.HurtInfo info)
+        {
+            if (convertHealthToFury != 0 || FuryEnergyCurrent < FuryEnergyMax2)
+            {
+                FuryEnergyCurrent += Utils.Clamp(
+                    info.Damage * convertHealthToFury,
+                    0,
+                    FuryEnergyMax2 - FuryEnergyCurrent
+                );
             }
         }
     }
