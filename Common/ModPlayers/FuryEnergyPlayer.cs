@@ -11,7 +11,7 @@ namespace CalamityEnchanter.Common.ModPlayers
     {
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
-        public int FuryEnergyCurrent; // Current value of our example resource
+        public float FuryEnergyCurrent; // Current value of our example resource
         public const int DefaultFuryEnergyMax = 100; // Default maximum value of example resource
         public int FuryEnergyMax; // maximum amount of Resource
         public int FuryEnergyMax2;
@@ -61,9 +61,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         {
             FuryEnergyRegenTimer++;
 
-            if (FuryEnergyRegenTimer >= 60 / FuryEnergyRegenRate)
+            if (FuryEnergyRegenTimer >= 30)
             {
-                FuryEnergyCurrent += 1;
+                FuryEnergyCurrent += (int)(FuryEnergyMax2 * FuryEnergyRegenRate / 200);
                 FuryEnergyRegenTimer = 0;
             }
 

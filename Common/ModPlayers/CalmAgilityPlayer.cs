@@ -11,7 +11,7 @@ namespace CalamityEnchanter.Common.ModPlayers
     {
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
-        public int CalmAgilityCurrent; // Current value of our example resource
+        public float CalmAgilityCurrent; // Current value of our example resource
         public const int DefaultCalmAgilityMax = 100; // Default maximum value of example resource
         public int CalmAgilityMax; // maximum amount of Resource
         public int CalmAgilityMax2;
@@ -61,9 +61,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         {
             CalmAgilityRegenTimer++;
 
-            if (CalmAgilityRegenTimer >= 60 / CalmAgilityRegenRate)
+            if (CalmAgilityRegenTimer >= 30)
             {
-                CalmAgilityCurrent += 1;
+                CalmAgilityCurrent += (int)(CalmAgilityMax2 * CalmAgilityRegenRate / 200);
                 CalmAgilityRegenTimer = 0;
             }
 

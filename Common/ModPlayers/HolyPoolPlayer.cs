@@ -11,7 +11,7 @@ namespace CalamityEnchanter.Common.ModPlayers
     {
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
-        public int HolyPoolCurrent; // Current value of our example resource
+        public float HolyPoolCurrent; // Current value of our example resource
         public const int DefaultHolyPoolMax = 100; // Default maximum value of example resource
         public int HolyPoolMax; // maximum amount of Resource
         public int HolyPoolMax2;
@@ -61,9 +61,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         {
             HolyPoolRegenTimer++;
 
-            if (HolyPoolRegenTimer >= 60 / HolyPoolRegenRate)
+            if (HolyPoolRegenTimer >= 30)
             {
-                HolyPoolCurrent += 1;
+                HolyPoolCurrent += (int)(HolyPoolMax2 * HolyPoolRegenRate / 200);
                 HolyPoolRegenTimer = 0;
             }
 
