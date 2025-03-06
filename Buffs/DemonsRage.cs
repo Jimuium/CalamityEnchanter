@@ -8,6 +8,7 @@ namespace CalamityEnchanter.Buffs
 {
     public class DemonsRage : ModBuff
     {
+        float DamageBoost = 0.1f;
         public override void SetStaticDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
@@ -16,7 +17,7 @@ namespace CalamityEnchanter.Buffs
 
         public override void Update (Player target, ref int buffIndex)
         {
-            target.GetDamage(DamageClass.Generic) += 0.1f;
+            target.GetDamage(DamageClass.Generic) += DamageBoost;
         }
 
     }
