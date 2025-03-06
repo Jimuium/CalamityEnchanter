@@ -19,6 +19,8 @@ namespace CalamityEnchanter.Common.ModPlayers
         internal int FuryEnergyRegenTimer = 0; // A variable that is required for our timer
         public bool FuryEnergyMagnet = false;
         public float FuryEnergyCostMultiplier = 1; // How many times more using items costs resource
+        public float FuryBuffLengthIncrease = 1;
+        public float FuryBuffStrengthIncrease = 1;
 
         // In order to make the Example Resource example straightforward, several things have been left out that would be needed for a fully functional resource similar to mana and health.
         // Here are additional things you might need to implement if you intend to make a custom resource:
@@ -63,7 +65,7 @@ namespace CalamityEnchanter.Common.ModPlayers
 
             if (FuryEnergyRegenTimer >= 30)
             {
-                FuryEnergyCurrent += (int)(FuryEnergyMax2 * FuryEnergyRegenRate / 200);
+                FuryEnergyCurrent += FuryEnergyMax2 * FuryEnergyRegenRate / 200;
                 FuryEnergyRegenTimer = 0;
             }
 
