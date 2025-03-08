@@ -123,5 +123,31 @@ namespace CalamityEnchanter.Items.Accessories
             }
             return true;
         }
+
+        public override bool CanAccessoryBeEquippedWith(
+            Item equippedItem,
+            Item incomingItem,
+            Player player
+        )
+        {
+            if (
+                equippedItem.type == ModContent.ItemType<HolyShield>()
+                && incomingItem.type == ModContent.ItemType<HealingSpirit>()
+            )
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<MysteriousCrystal>())
+                .AddIngredient(ModContent.ItemType<HealingSpirit>())
+                .AddIngredient(ItemID.HallowedBar, 12)
+                .AddTile(TileID.MythrilAnvil)
+                .Register();
+        }
     }
 }

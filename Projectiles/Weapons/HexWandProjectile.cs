@@ -1,3 +1,4 @@
+using System;
 using CalamityEnchanter.Buffs;
 using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Dusts.Weapons;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Projectiles.Weapons
 {
-    internal class WoodenHexStaffProjectile : ModProjectile
+    internal class HexWandProjectile : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -27,8 +28,14 @@ namespace CalamityEnchanter.Projectiles.Weapons
         public override void AI()
         {
             Projectile.ai[0]++;
-            Projectile.velocity *= 0.995f;
-            if (Projectile.ai[0] == 60)
+            if (Projectile.ai[0] >= 15)
+            {
+                if (Projectile.velocity.Length() < 25f)
+                {
+                    Projectile.velocity *= 1 + Projectile.ai[0] / 50;
+                }
+            }
+            if (Projectile.ai[0] == 120)
             {
                 Projectile.Kill();
             }
@@ -40,21 +47,28 @@ namespace CalamityEnchanter.Projectiles.Weapons
 
             Lighting.AddLight(Projectile.Center, new Vector3(141f / 255f, 76f / 255f, 167f / 255f));
 
-            if (Main.rand.NextBool(2))
+            for (int i = 0; i < 3; i++)
             {
-                int numToSpawn = Main.rand.Next(3);
-                for (int i = 0; i < numToSpawn; i++)
+                if (i > 2)
                 {
                     Dust.NewDust(
                         Projectile.position,
                         Projectile.width,
                         Projectile.height,
                         ModContent.DustType<HexDust>(),
-                        Projectile.velocity.X * 0.1f,
-                        Projectile.velocity.Y * 0.1f,
-                        0,
-                        default(Color),
-                        1f
+                        Projectile.velocity.X * 1f,
+                        Projectile.velocity.Y * 1f
+                    );
+                }
+                else
+                {
+                    Dust.NewDust(
+                        Projectile.position,
+                        Projectile.width,
+                        Projectile.height,
+                        ModContent.DustType<DarkHexDust>(),
+                        Projectile.velocity.X * 0.5f,
+                        Projectile.velocity.Y * 0.5f
                     );
                 }
             }

@@ -23,17 +23,5 @@ namespace CalamityEnchanter.Items.Accessories
             var FuryEnergyPlayer = player.GetModPlayer<FuryEnergyPlayer>();
             FuryEnergyPlayer.convertHealthToFury += healthToFuryEnergyRate;
         }
-
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)
-        {
-            foreach (Item equippedItem in player.armor)
-            {
-                if (equippedItem.type == ModContent.ItemType<PainConverterUpgrade>())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
     }
 }
