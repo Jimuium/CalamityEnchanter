@@ -108,5 +108,20 @@ namespace CalamityEnchanter.Items.Accessories
             );
             tooltips.Insert(3, customLine);
         }
+
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)
+        {
+            foreach (Item equippedItem in player.armor)
+            {
+                if (
+                    equippedItem.type == ModContent.ItemType<MysteriousCrystal>()
+                    || equippedItem.type == ModContent.ItemType<HealingSpirit>()
+                )
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

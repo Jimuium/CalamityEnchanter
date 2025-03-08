@@ -122,5 +122,17 @@ namespace CalamityEnchanter.Items.Accessories
             );
             tooltips.Insert(2, customLine);
         }
+
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)
+        {
+            foreach (Item equippedItem in player.armor)
+            {
+                if (equippedItem.type == ModContent.ItemType<HolyShield>())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

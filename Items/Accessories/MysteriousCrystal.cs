@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using CalamityEnchanter.Buffs;
 using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Common.ModPlayers;
-using CalamityEnchanter.Dusts.Accessories;
 using CalamityEnchanter.Projectiles.Accessories;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -71,19 +69,31 @@ namespace CalamityEnchanter.Items.Accessories
             tooltips.Insert(3, customLine);
         }
 
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)
+        {
+            foreach (Item equippedItem in player.armor)
+            {
+                if (equippedItem.type == ModContent.ItemType<HolyShield>())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe()
                 .AddIngredient(ItemID.CrystalShard, 12)
                 .AddIngredient(ItemID.MythrilBar, 8)
-                .AddIngredient(ItemID.GreenDye, 1)
+                .AddRecipeGroup("greenDyes", 1)
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
 
             Recipe recipe_alt = CreateRecipe()
                 .AddIngredient(ItemID.CrystalShard, 12)
                 .AddIngredient(ItemID.OrichalcumBar, 8)
-                .AddIngredient(ItemID.GreenDye, 1)
+                .AddRecipeGroup("greenDyes", 1)
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
         }

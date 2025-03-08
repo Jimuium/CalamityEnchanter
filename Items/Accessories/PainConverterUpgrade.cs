@@ -6,9 +6,9 @@ using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Items.Accessories
 {
-    internal class PainConverter : ModItem
+    internal class PainConverterUpgrade : ModItem
     {
-        float healthToFuryEnergyRate = 0.1f;
+        float healthToFuryEnergyRate = 0.25f;
 
         public override void SetDefaults()
         {
@@ -28,7 +28,7 @@ namespace CalamityEnchanter.Items.Accessories
         {
             foreach (Item equippedItem in player.armor)
             {
-                if (equippedItem.type == ModContent.ItemType<PainConverterUpgrade>())
+                if (equippedItem.type == ModContent.ItemType<PainConverter>())
                 {
                     return false;
                 }
