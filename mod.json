@@ -1,0 +1,10 @@
+{
+    "name": "UnofficialCalamityEnchanter",
+    "version": "0.1",
+    "description": "An awesome mod that requires Calamity!",
+    "authors": [ "Jimuium" ],
+    "dependencies": {
+      "CalamityMod": ">=1.4.0.0"
+    }
+  }
+  
