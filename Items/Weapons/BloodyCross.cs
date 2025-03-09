@@ -14,9 +14,9 @@ namespace CalamityEnchanter.Items.Weapons
         {
             Item.width = 64;
             Item.height = 64;
-            Item.useTime = 92;
+            Item.useTime = 45;
             Item.autoReuse = false;
-            Item.useAnimation = 92;
+            Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.rare = ItemRarityID.Blue;
 
