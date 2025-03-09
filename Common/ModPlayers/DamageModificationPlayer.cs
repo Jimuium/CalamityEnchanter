@@ -51,7 +51,7 @@ namespace CalamityEnchanter.Common.ModPlayers
             if (
                 defendedByAbsorbTeamDamageEffect
                 && Player != localPlayer
-                && IsClosestShieldWearerInRange(localPlayer, Player.Center, Player.team)
+                && IsClosestShieldWearerInRange(localPlayer, Player.position, Player.team)
             )
             {
                 float percent = AbsorbDamageStrength;
@@ -98,17 +98,14 @@ namespace CalamityEnchanter.Common.ModPlayers
             }
 
             float distance = player.Distance(target);
-            if (distance > HolyPalladinHelmet.DamageAbsorptionAbilityLifeThreshold)
+            if (distance > HolyPalladinHelmet.DamageAbsorptionRange)
             {
-                return false; // player we're out of range, so can't take the hit
+                return false;
             }
 
             foreach (var otherPlayer in Main.ActivePlayers)
             {
-                if (
-                    otherPlayer.whoAmI != Main.myPlayer
-                    && IsAbleToAbsorbDamageForTeammate(otherPlayer, team)
-                )
+                if (otherPlayer != player && IsAbleToAbsorbDamageForTeammate(otherPlayer, team))
                 {
                     float otherPlayerDistance = otherPlayer.Distance(target);
                     if (
@@ -120,7 +117,6 @@ namespace CalamityEnchanter.Common.ModPlayers
                     }
                 }
             }
-
             return true;
         }
     }

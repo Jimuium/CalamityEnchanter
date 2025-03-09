@@ -16,6 +16,7 @@ namespace CalamityEnchanter.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             player.GetModPlayer<DamageModificationPlayer>().defendedByAbsorbTeamDamageEffect = true;
+            player.GetModPlayer<DamageModificationPlayer>().AbsorbDamageStrength = 0.3f;
         }
     }
 }

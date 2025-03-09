@@ -68,6 +68,7 @@ namespace CalamityEnchanter.Items.Armors
             var CalmAgilityPlayer = player.GetModPlayer<CalmAgilityPlayer>();
             CalmAgilityPlayer.CalmAgilityRegenRate -= otherRegenDecrease;
             CalmAgilityPlayer.AgilityBuffLengthMultiplier -= otherBuffDecrease;
+            player.GetModPlayer<DamageModificationPlayer>().hasAbsorbTeamDamageEffect = true;
 
             if (player.whoAmI != Main.myPlayer && player.miscCounter % 10 == 0)
             {
@@ -83,8 +84,6 @@ namespace CalamityEnchanter.Items.Armors
                     )
                     {
                         target.AddBuff(ModContent.BuffType<HolyPalladinArmorBuff>(), 20);
-                        target.GetModPlayer<DamageModificationPlayer>().hasAbsorbTeamDamageEffect =
-                            true;
                     }
                 }
             }
