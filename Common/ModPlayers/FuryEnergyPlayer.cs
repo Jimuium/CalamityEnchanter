@@ -9,6 +9,8 @@ namespace CalamityEnchanter.Common.ModPlayers
 {
     public class FuryEnergyPlayer : ModPlayer
     {
+        public float convertHealthToFury = 0;
+
         // Here we create a custom resource, similar to mana or health.
         // Creating some variables to define the current value of our example resource as well as the current maximum value. We also include a temporary max value, as well as some variables to handle the natural regeneration of this resource.
         public float FuryEnergyCurrent; // Current value of our example resource
@@ -19,8 +21,9 @@ namespace CalamityEnchanter.Common.ModPlayers
         internal int FuryEnergyRegenTimer = 0; // A variable that is required for our timer
         public bool FuryEnergyMagnet = false;
         public float FuryEnergyCostMultiplier = 1; // How many times more using items costs resource
-        public float FuryBuffLengthIncrease = 1;
-        public float FuryBuffStrengthIncrease = 1;
+        public float FuryBuffLengthMultiplier = 1;
+        public float FuryBuffStrengthIncrease = 0f;
+        private float totalBuffStrengthIncrease = 0;
 
         // In order to make the Example Resource example straightforward, several things have been left out that would be needed for a fully functional resource similar to mana and health.
         // Here are additional things you might need to implement if you intend to make a custom resource:
@@ -47,6 +50,10 @@ namespace CalamityEnchanter.Common.ModPlayers
             FuryEnergyRegenRate = 1f;
             FuryEnergyMax2 = FuryEnergyMax;
             FuryEnergyMagnet = false;
+            convertHealthToFury = 0;
+            FuryBuffLengthMultiplier = 1;
+            FuryBuffStrengthIncrease = 0;
+            totalBuffStrengthIncrease = 0;
         }
 
         public override void PostUpdateMiscEffects()
@@ -78,6 +85,18 @@ namespace CalamityEnchanter.Common.ModPlayers
             if (Main.myPlayer == Player.whoAmI && Player.creativeGodMode)
             {
                 FuryEnergyCurrent = FuryEnergyMax2;
+            }
+        }
+
+        public override void OnHurt(Player.HurtInfo info)
+        {
+            if (convertHealthToFury != 0 || FuryEnergyCurrent < FuryEnergyMax2)
+            {
+                FuryEnergyCurrent += Utils.Clamp(
+                    info.Damage * convertHealthToFury,
+                    0,
+                    FuryEnergyMax2 - FuryEnergyCurrent
+                );
             }
         }
     }

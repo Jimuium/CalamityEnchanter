@@ -2,12 +2,13 @@ using CalamityEnchanter.Common.DamageClasses;
 using CalamityEnchanter.Common.ModPlayers;
 using CalamityEnchanter.Projectiles.Weapons;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalamityEnchanter.Items.Weapons
 {
-    internal class WoodenHexStaff : ModItem
+    internal class WoodenHexWand : ModItem
     {
         int ResourceCost = 3;
 
@@ -29,8 +30,13 @@ namespace CalamityEnchanter.Items.Weapons
             Item.knockBack = 2f;
 
             Item.UseSound = SoundID.Item71;
-            Item.shoot = ModContent.ProjectileType<WoodenHexStaffProjectile>();
-            Item.shootSpeed = 12f;
+            Item.shoot = ModContent.ProjectileType<HexWandProjectile>();
+            Item.shootSpeed = 6f;
+        }
+
+        public override void SetStaticDefaults()
+        {
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(8, 3));
         }
 
         public override bool CanUseItem(Player player)
@@ -48,7 +54,5 @@ namespace CalamityEnchanter.Items.Weapons
 
             return true;
         }
-
-        
     }
 }
